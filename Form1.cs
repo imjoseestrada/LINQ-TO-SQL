@@ -19,42 +19,32 @@ namespace LINQ_TO_SQL
 
         private void btnTodosDGV_Click(object sender, EventArgs e)
         {
-            var resultados = objAlumno.MostrarTodosDGV();
-            dgvAlumnos.DataSource = resultados;
+            objAlumno.MostrarTodosEnDGV(dgvAlumnos);
         }
 
         private void btnTodosTB_Click(object sender, EventArgs e)
         {
-            string resultados = objAlumno.MostrarTodosTB();
-            txtDatos.Text = resultados;
+            objAlumno.MostrarTodosEnTB(txtAlumnos);
         }
 
         private void btnMayoresTB_Click(object sender, EventArgs e)
         {
-            string resultados = objAlumno.MostrarMayoresTB();
-            txtDatos.Text = resultados;
+            objAlumno.MostrarMayoresEnTB(txtAlumnos);
         }
 
         private void btnMayoresDGV_Click(object sender, EventArgs e)
         {
-            var resultados = objAlumno.MostrarMayoresDGV();
-            dgvAlumnos.DataSource = resultados;
+            objAlumno.MostrarMayoresEnDGV(dgvAlumnos);
         }
 
         private void btnBuscarTB_Click(object sender, EventArgs e)
         {
-            string nombre = txtBuscarTB.Text;
-
-            string buscar = objAlumno.BuscarTB(nombre);
-            txtDatos.Text = buscar;
+            objAlumno.BuscarPorNombreTB(txtBuscarNombreTB, txtAlumnos);
         }
 
         private void btnBuscarDGV_Click(object sender, EventArgs e)
         {
-            string nombre = txtBuscarDGV.Text;
-
-            var buscar = objAlumno.BuscarDGV(nombre);
-            dgvAlumnos.DataSource = buscar;
+            objAlumno.BuscarPorNombreDGV(txtBuscarNombreDGV, dgvAlumnos);
         }
     }
 }

@@ -11,104 +11,117 @@ namespace LINQ_TO_SQL
     {
         conectorEscuelaDataContext bdEscuela = new conectorEscuelaDataContext();
 
-        public IQueryable MostrarTodosDGV()
+        public void MostrarTodosEnDGV(DataGridView dgvAlumnos)
         {
             var registros = from valor in bdEscuela.Estudiantes
                             select valor;
-            return registros;
+            dgvAlumnos.DataSource = registros;
         }
 
-        public IQueryable MostrarMayoresDGV()
+        public void MostrarMayoresEnDGV(DataGridView dgvAlumnos)
         {
             var registros = from valor in bdEscuela.Estudiantes
                             where valor.Edad >= 18
                             select valor;
-            return registros;
+            if (registros.Any())
+            {
+                dgvAlumnos.DataSource = registros;
+            }
+            else
+            {
+                dgvAlumnos.DataSource = null;
+                MessageBox.Show("Ninguno de tus estudiantes es mayor de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public IQueryable BuscarDGV(string nombre)
+        public void BuscarPorNombreDGV(TextBox txtNombre, DataGridView dgvAlumnos)
         {
-            if (nombre != "")
+            if (txtNombre.Text != "")
             {
                 var registros = from valor in bdEscuela.Estudiantes
-                                where valor.Nombre.Contains(nombre)
+                                where valor.Nombre.Contains(txtNombre.Text)
                                 select valor;
-
-                if (registros.Count() == 0)
+                if (registros.Any())
                 {
-                    MessageBox.Show("No hay registros disponibles", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
+                    dgvAlumnos.DataSource = registros;
+                } else
+                {
+                    dgvAlumnos.DataSource = null;
+                    MessageBox.Show("Ninguno de tus estudiantes se llama: " + txtNombre.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNombre.Text = null;
                 }
-                return registros;
-            } else
-            {
-                MessageBox.Show("No ingresaste ningún valor de búsqueda", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
             }
-            
+            else
+            {
+                dgvAlumnos.DataSource = null;
+                MessageBox.Show("No ingresaste ningún valor de búsqueda", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public string MostrarTodosTB()
+        public void MostrarTodosEnTB(TextBox txtAlumnos)
         {
-            string alumnos = "";
+            txtAlumnos.Text = "";
             var registros = from valor in bdEscuela.Estudiantes
                             select valor;
-
-            foreach (var res in registros) { 
-            alumnos = alumnos +
-                    res.Id + " " +
-                    res.Nombre + " " +
-                    res.Edad + "\r\n";
+            foreach (var alumno in registros) { 
+            txtAlumnos.Text = txtAlumnos.Text +
+                    alumno.Id + " " +
+                    alumno.Nombre + " " +
+                    alumno.Edad + Environment.NewLine;
             }
-            return alumnos;
         }
 
-        public string MostrarMayoresTB()
+        public void MostrarMayoresEnTB(TextBox txtAlumnos)
         {
-            string alumnos = "";
+            txtAlumnos.Text = "";
             var registros = from valor in bdEscuela.Estudiantes
                             where valor.Edad >= 18
                             select valor;
-
-            foreach (var res in registros)
+            if (registros.Any())
             {
-                alumnos = alumnos +
-                    res.Id + " " +
-                    res.Nombre + " " +
-                    res.Edad + "\r\n";
+                foreach (var alumno in registros)
+                {
+                    txtAlumnos.Text = txtAlumnos.Text +
+                        alumno.Id + " " +
+                        alumno.Nombre + " " +
+                        alumno.Edad + Environment.NewLine;
+                }
             }
-            return alumnos;
+            else
+            {
+                txtAlumnos.Text = null;
+                MessageBox.Show("Ninguno de tus estudiantes es mayor de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public string BuscarTB(string nombre)
+        public void BuscarPorNombreTB(TextBox txtNombre, TextBox txtAlumnos)
         {
-            if (nombre != "")
+            txtAlumnos.Text = "";
+            if (txtNombre.Text != "")
             {
-                string alumnos = "";
                 var registros = from valor in bdEscuela.Estudiantes
-                                where valor.Nombre.Contains(nombre)
+                                where valor.Nombre.Contains(txtNombre.Text)
                                 select valor;
-
-                if (registros.Count() != 0)
+                if (registros.Any())
                 {
-                    foreach (var res in registros)
+                    foreach (var alumno in registros)
                     {
-                        alumnos = alumnos +
-                            res.Id + " " +
-                            res.Nombre + " " +
-                            res.Edad + "\r\n";
+                        txtAlumnos.Text = txtAlumnos.Text +
+                            alumno.Id + " " +
+                            alumno.Nombre + " " +
+                            alumno.Edad + Environment.NewLine;
                     }
                 }
                 else
                 {
-                    alumnos = "No hay registros disponibles";
+                    txtAlumnos.Text = "Ninguno de tus estudiantes se llama: " + txtNombre.Text;
+                    txtNombre.Text = null;
                 }
-                return alumnos;
             }
             else
             {
+                txtAlumnos.Text = "";
                 MessageBox.Show("No ingresaste ningún valor de búsqueda", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
             }
         }
     }

@@ -30,13 +30,13 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscarTB = new System.Windows.Forms.Button();
-            this.txtBuscarTB = new System.Windows.Forms.TextBox();
+            this.txtBuscarNombreTB = new System.Windows.Forms.TextBox();
             this.btnMayoresTB = new System.Windows.Forms.Button();
             this.btnTodosTB = new System.Windows.Forms.Button();
-            this.txtDatos = new System.Windows.Forms.TextBox();
+            this.txtAlumnos = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscarDGV = new System.Windows.Forms.Button();
-            this.txtBuscarDGV = new System.Windows.Forms.TextBox();
+            this.txtBuscarNombreDGV = new System.Windows.Forms.TextBox();
             this.btnMayoresDGV = new System.Windows.Forms.Button();
             this.btnTodosDGV = new System.Windows.Forms.Button();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
@@ -48,10 +48,10 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnBuscarTB);
-            this.groupBox1.Controls.Add(this.txtBuscarTB);
+            this.groupBox1.Controls.Add(this.txtBuscarNombreTB);
             this.groupBox1.Controls.Add(this.btnMayoresTB);
             this.groupBox1.Controls.Add(this.btnTodosTB);
-            this.groupBox1.Controls.Add(this.txtDatos);
+            this.groupBox1.Controls.Add(this.txtAlumnos);
             this.groupBox1.Location = new System.Drawing.Point(18, 14);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
@@ -71,12 +71,12 @@
             this.btnBuscarTB.UseVisualStyleBackColor = true;
             this.btnBuscarTB.Click += new System.EventHandler(this.btnBuscarTB_Click);
             // 
-            // txtBuscarTB
+            // txtBuscarNombreTB
             // 
-            this.txtBuscarTB.Location = new System.Drawing.Point(483, 140);
-            this.txtBuscarTB.Name = "txtBuscarTB";
-            this.txtBuscarTB.Size = new System.Drawing.Size(226, 32);
-            this.txtBuscarTB.TabIndex = 3;
+            this.txtBuscarNombreTB.Location = new System.Drawing.Point(483, 140);
+            this.txtBuscarNombreTB.Name = "txtBuscarNombreTB";
+            this.txtBuscarNombreTB.Size = new System.Drawing.Size(226, 32);
+            this.txtBuscarNombreTB.TabIndex = 3;
             // 
             // btnMayoresTB
             // 
@@ -99,20 +99,20 @@
             this.btnTodosTB.UseVisualStyleBackColor = true;
             this.btnTodosTB.Click += new System.EventHandler(this.btnTodosTB_Click);
             // 
-            // txtDatos
+            // txtAlumnos
             // 
-            this.txtDatos.Location = new System.Drawing.Point(12, 37);
-            this.txtDatos.Margin = new System.Windows.Forms.Padding(6);
-            this.txtDatos.Multiline = true;
-            this.txtDatos.Name = "txtDatos";
-            this.txtDatos.ReadOnly = true;
-            this.txtDatos.Size = new System.Drawing.Size(459, 200);
-            this.txtDatos.TabIndex = 0;
+            this.txtAlumnos.Location = new System.Drawing.Point(12, 37);
+            this.txtAlumnos.Margin = new System.Windows.Forms.Padding(6);
+            this.txtAlumnos.Multiline = true;
+            this.txtAlumnos.Name = "txtAlumnos";
+            this.txtAlumnos.ReadOnly = true;
+            this.txtAlumnos.Size = new System.Drawing.Size(459, 200);
+            this.txtAlumnos.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnBuscarDGV);
-            this.groupBox2.Controls.Add(this.txtBuscarDGV);
+            this.groupBox2.Controls.Add(this.txtBuscarNombreDGV);
             this.groupBox2.Controls.Add(this.btnMayoresDGV);
             this.groupBox2.Controls.Add(this.btnTodosDGV);
             this.groupBox2.Controls.Add(this.dgvAlumnos);
@@ -135,12 +135,12 @@
             this.btnBuscarDGV.UseVisualStyleBackColor = true;
             this.btnBuscarDGV.Click += new System.EventHandler(this.btnBuscarDGV_Click);
             // 
-            // txtBuscarDGV
+            // txtBuscarNombreDGV
             // 
-            this.txtBuscarDGV.Location = new System.Drawing.Point(483, 140);
-            this.txtBuscarDGV.Name = "txtBuscarDGV";
-            this.txtBuscarDGV.Size = new System.Drawing.Size(226, 32);
-            this.txtBuscarDGV.TabIndex = 6;
+            this.txtBuscarNombreDGV.Location = new System.Drawing.Point(483, 140);
+            this.txtBuscarNombreDGV.Name = "txtBuscarNombreDGV";
+            this.txtBuscarNombreDGV.Size = new System.Drawing.Size(226, 32);
+            this.txtBuscarNombreDGV.TabIndex = 6;
             // 
             // btnMayoresDGV
             // 
@@ -196,15 +196,15 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnTodosTB;
-        private System.Windows.Forms.TextBox txtDatos;
+        private System.Windows.Forms.TextBox txtAlumnos;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnTodosDGV;
         private System.Windows.Forms.DataGridView dgvAlumnos;
         private System.Windows.Forms.Button btnBuscarTB;
-        private System.Windows.Forms.TextBox txtBuscarTB;
+        private System.Windows.Forms.TextBox txtBuscarNombreTB;
         private System.Windows.Forms.Button btnMayoresTB;
         private System.Windows.Forms.Button btnBuscarDGV;
-        private System.Windows.Forms.TextBox txtBuscarDGV;
+        private System.Windows.Forms.TextBox txtBuscarNombreDGV;
         private System.Windows.Forms.Button btnMayoresDGV;
     }
 }
